@@ -4,10 +4,14 @@ class ListsController < ApplicationController
   end
 
   def show
-    @lists = List.all
+    @list = List.all
   end
 
   def new
+    @list = List.new
+  end
 
+  def create
+    raise
   end
 end
