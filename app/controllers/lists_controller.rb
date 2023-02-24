@@ -4,7 +4,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = List.all
+    @list = List.find(params[:id])
   end
 
   def new
@@ -12,6 +12,22 @@ class ListsController < ApplicationController
   end
 
   def create
-    raise
+    # raise
+    @list = List.new(list_params)
+    if @list.save
+      redirect_to list_path(@list)
+    else
+      render 'lists/new', status: 422
+    end
+  end
+
+  def post
+
+  end
+
+  private
+
+  def list_params
+    params.require(:list).permit(:name)
   end
 end

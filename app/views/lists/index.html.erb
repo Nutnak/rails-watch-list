@@ -1,1 +1,8 @@
 <h1>Hi from index page 😎</h1>
+
+<% @lists.each do |list|%>
+<li><%= link_to list.name, list_path(list) %></li>
+<% end %>
+
+
+<%= link_to 'Create a new list', lists_new_path(@list) %>
