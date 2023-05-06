@@ -2,4 +2,13 @@
 <%= @list.name %>
 
 
+<p><strong>Bookmarks</strong></p>
+<ul class="list-group">
+  <% @list.bookmarks.each do |bookmark| %>
+  <%raise%>
+    <li class="list-group-item"><%= bookmark.comment %></li>
+  <% end %>
+</ul>
+<br>
+
 <%= link_to 'Back to the main menu', lists_path(@lists) %>
